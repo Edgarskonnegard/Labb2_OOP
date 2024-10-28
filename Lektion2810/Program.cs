@@ -4,7 +4,9 @@
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello, World!");
+            Animal bear = new Bear("roar", 4);
+            bear.MakeSound();
+            bear.ShowInfo();
         }
     }
 }
@@ -16,31 +18,34 @@ public class Animal
     public bool HasTail { get; set; } = false;
     public bool IsPet { get; set; } = false;
     public int Age { get; set; } = -1;
-    public Animal(string sound)
+    public Animal(string sound, int numberOfLegs, bool hasTail, bool isPet, int age)
     {
         Sound = sound;
+        NumberOfLegs = numberOfLegs;
+        HasTail = hasTail;
+        IsPet = isPet;
+        Age = age;
     }
 
     public virtual void ShowInfo()
     {
         Console.WriteLine($"Details of this animal\n" +
-            $"Sound : {Sound}\n" +
-            $"Number of legs : {NumberOfLegs}\n" +
-            $"Has tail : {HasTail}\n" +
-            $"Is a pet : {IsPet}\n" +
-            $"Animals age : {Age}\n");
+            $" Sound : {Sound}\n" +
+            $" Number of legs : {NumberOfLegs}\n" +
+            $" Has tail : {HasTail}\n" +
+            $" Is a pet : {IsPet}\n" +
+            $" Animals age : {Age}\n");
     }
-    public virtual void feat()
+    public virtual void Feat()
     {
         Console.WriteLine();
     }
     public virtual void MakeSound()
     {
-        Console.WriteLine(Sound);
         foreach(var s in Sound)
         {
             Console.Write(s);
-            Thread.Sleep(200);
+            Thread.Sleep(500);
         }
     }
 
@@ -48,20 +53,21 @@ public class Animal
 
 public class Bear : Animal
 {
+    /*
     public string Sound { get; set; } = "Default";
     public int NumberOfLegs { get; set; } = 4;
     public bool HasTail { get; set; } = false;
     public bool IsPet { get; set; } = false;
     public int Age { get; set; } = -1;
-    public Bear(string sound) : base(sound)
+    */
+    public string TypeOfBear { get; set; } = "Bumbibjörn";
+    public Bear(string sound, int numberOfLegs, bool hasTail, bool isPet, int age, string typeOfBear) : base(sound, numberOfLegs, hasTail, isPet, age)
     {
-
+        TypeOfBear = typeOfBear;
     }
-    public override void MakeSound() 
-    {
-    }
+    
 }
-
+/*
 public class Dog : Animal
 {
     public override void MakeSound()
@@ -77,3 +83,4 @@ public class Cat : Animal
         throw new NotImplementedException();
     }
 }
+*/
