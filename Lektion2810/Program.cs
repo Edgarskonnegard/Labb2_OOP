@@ -72,20 +72,47 @@ public class Bear : Animal
     }
 }
 
-/*
 public class Dog : Animal
 {
-    public override void MakeSound()
+    private bool _isGoodBoy { get; set; } = true;
+    public Dog(string sound, int numberOfLegs, bool hasTail, bool isPet, int age, bool isGoodBoy) : base(sound, numberOfLegs, hasTail, isPet, age)
     {
-        throw new NotImplementedException();
+        _isGoodBoy = isGoodBoy;
+    }
+    public override void ShowInfo()
+    {
+        Console.WriteLine("This animal is a dog");
+        base.ShowInfo();
+    }
+    public void IsGoodBoy()
+    {
+        Console.WriteLine(_isGoodBoy ? $"This dog is a good boy" : $"This dog is not a good boy");
+    }
+}
+
+public class Pitbull : Dog
+{
+    private string _myFriends { }
+    public Pitbull(string sound, int numberOfLegs, bool hasTail, bool isPet, int age, bool isGoodBoy) : base(sound, numberOfLegs, hasTail, isPet, age, isGoodBoy)
+    {
+        _isGoodBoy = isGoodBoy;
     }
 }
 
 public class Cat : Animal
 {
-    public override void MakeSound()
+    private bool _isPregnant { get; set; } = true;
+    public Cat(string sound, int numberOfLegs, bool hasTail, bool isPet, int age, bool isPregnant) : base(sound, numberOfLegs, hasTail, isPet, age)
     {
-        throw new NotImplementedException();
+        _isPregnant = isPregnant;
+    }
+    public override void ShowInfo()
+    {
+        Console.WriteLine("This animal is a cat");
+        base.ShowInfo();
+    }
+    public void IsPregnant()
+    {
+        Console.WriteLine(_isPregnant ? $"This cat is pregnant again" : $"This cat is not pregnant, phew.");
     }
 }
-*/
