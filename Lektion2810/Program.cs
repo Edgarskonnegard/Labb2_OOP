@@ -4,8 +4,8 @@
     {
         static void Main(string[] args)
         {
-            Animal bear = new Bear("roar", 4);
-            bear.MakeSound();
+            Animal bear = new Bear("roar", 4, false, false, 3, "grizzly bear");
+            //bear.MakeSound();
             bear.ShowInfo();
         }
     }
@@ -29,7 +29,7 @@ public class Animal
 
     public virtual void ShowInfo()
     {
-        Console.WriteLine($"Details of this animal\n" +
+        Console.WriteLine(
             $" Sound : {Sound}\n" +
             $" Number of legs : {NumberOfLegs}\n" +
             $" Has tail : {HasTail}\n" +
@@ -65,8 +65,13 @@ public class Bear : Animal
     {
         TypeOfBear = typeOfBear;
     }
-    
+    public override void ShowInfo()
+    {
+        Console.WriteLine($"This bear is an {TypeOfBear}");
+        base.ShowInfo();
+    }
 }
+
 /*
 public class Dog : Animal
 {
